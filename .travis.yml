@@ -20,3 +20,16 @@ after_success:
   - docker push rifkiadrn/multi-server
   - docker push rifkiadrn/multi-nginx
   - docker push rifkiadrn/multi-worker
+
+deploy:
+  edge: true
+  provider: elasticbeanstalk
+  region: "ap-southeast-1"
+  app: "multi-docker"
+  env: "MultiDocker-env"
+  bucket_name: "elasticbeanstalk-ap-southeast-1-501315764306"
+  bucket_path: "multi-docker"
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY_ID
+  secret_access_key: $AWS_SECRET_ACCESS_KEY
