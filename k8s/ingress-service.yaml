@@ -11,12 +11,10 @@ spec:
     - http:
         paths:
           - path: /?(.*)
-            pathType: Prefix
             backend:
               serviceName: client-cluster-ip-service
               servicePort: 3000
           - path: /api/?(.*)
-            pathType: Prefix
             backend:
               serviceName: server-cluster-ip-service
               servicePort: 5000
